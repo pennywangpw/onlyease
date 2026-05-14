@@ -1,0 +1,623 @@
+header {
+  height: 20vh;
+  background-color: #f5f5f0; /* 確保背景色與 body 一致或自訂 */
+  
+  /* --- 關鍵居中代碼 --- */
+  display: flex;
+  justify-content: center; /* X 軸：水平居中 */
+  align-items: center;     /* Y 軸：垂直居中 */
+  /* -------------------- */
+  
+  /* 原有屬性 */
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+/* 修正 h1 的定位 */
+header h1 {
+  /* 移除你之前可能寫過的 position: absolute 或 transform，
+     因為 Flexbox 會自動處理位置 */
+  margin: 0; 
+  color: black;
+  font-size: 50px;
+}
+
+
+h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fffffff4;
+}
+
+/* only set up margin, background and font-size */
+body {
+  /* background-color: #f5f5f0; */
+  background-color: rgb(255, 232, 155);
+  /* padding: 10px 30px 0px 30px; */
+  /* margin: 0 8px 0 8px; */
+  margin: 0 0 0 0;
+  font-size:18px;
+}
+
+.happy-monkey-regular {
+  font-family: "Happy Monkey", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.cherry-cream-soda-regular {
+  font-family: "Cherry Cream Soda", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+a {
+  font-size: 30px;
+  text-decoration: none;
+  margin-right: 35px;
+  color: rgba(11, 11, 11, 0.991);
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* navigator  */
+@media(max-width: 992px){
+  nav div{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  nav a {
+    margin: 0; /* 移除原本的 margin-right */
+    padding: 15px 0; /* 調整上下 padding，讓它在手機上看起來更像按鈕 */
+    border-right: none; /* 移除右邊框，改用底部邊框 */
+    border-bottom: 2px solid #fff; /* 加上底部邊框作為分隔線 */
+  }
+  
+  nav a:last-child {
+    border-bottom: none; /* 最後一個按鈕不需要底部邊框 */
+  }
+}
+.container {
+  /* max-width: 1200px; 統一寬度 */
+  margin: 0 auto;    /* 統一置中 */
+  /* padding: 0 20px;   統一側邊留白，防止貼邊 */
+}
+
+nav div{
+  display: flex;            /* 開啟 Flexbox */
+  /* background-color: #ccc;   參考 Wireframe 的灰色背景 */
+  background-color: rgb(255, 243, 204);
+}
+
+nav a {
+  flex: 1;                  /* 核心：讓每個按鈕等寬分配剩餘空間 */
+  text-align: center;       /* 文字置中 */
+  padding: 26px 0;          /* 增加上下高度，讓它像個按鈕塊 */
+  margin-right: 0;          /* 移除原本混亂的 margin-right */
+  
+  /* 邊框線（參考草圖中的間隔線） */
+  border-right: 2px solid #fff; 
+  font-size: 25px;          /* 調整適合的字體大小 */
+  color: black;
+  transition: background-color 0.3s;
+}
+
+/* 最後一個按鈕不需要右邊框 */
+nav a:last-child {
+  border-right: none;
+}
+
+/* 滑鼠滑入效果（參考 Wireframe 選中狀態） */
+nav a:hover {
+  background-color: #999;
+  text-decoration: none;    /* 移除底線，改用背景色強調 */
+}
+
+/* 如果是當前頁面，可以手動加上一個 class 或直接定義選中顏色 */
+nav a.active {
+  background-color: #888;
+  color: white;
+}
+
+
+.multi-cols {
+  display: flex;
+  justify-content: space-around;
+}
+
+.hero-img-title {
+  font-size: 50px;
+  color: black;
+}
+
+/* footer */
+.footer-section {
+  display: flex;
+  flex-direction: column; /* 讓版權字樣跟連結上下分開 */
+  align-items: center;    /* 水平居中 */
+  padding: 20px 0 10px 0;
+  border-top: 1px solid #ddd; /* 增加一條細線區隔內容 */
+  /* margin-top: 60px; */
+}
+
+.footer-bottom {
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+
+/* 確保 footer 裡的 a 標籤不會有預設的 margin-right 干擾 */
+.footer-links a {
+  margin-right: 0; 
+  font-size: 18px;
+}
+
+/* landing page */
+.home-hero {
+  background-image: url("../all-img/heroimage.jpg");
+  height: 80vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* 使用 Flexbox 讓內部容器居中 */
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  
+  color: white;
+  text-align: center; /* 確保文字在換行後也是水平置中 */
+}
+
+/* 建立一個內部容器來控制兩行文字 */
+.hero-content {
+  display: flex;
+  flex-direction: column; /* 讓 h2 和 p 分成上下兩行 */
+  align-items: center;    /* 確保兩行文字互相對齊中心 */
+  gap: 20px;             /* 兩行文字之間的距離 */
+  padding: 0 20px;        /* 防止文字在手機版貼到邊緣 */
+}
+
+.hero-content h2 {
+  font-size: 5rem;
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.99);
+}
+
+.hero-mission {
+  font-size: 2rem;      /* Mission 的字體通常設定小一點比較優雅 */
+  max-width: 800px;       /* 限制寬度，避免文字在寬螢幕上變太長一行 */
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.personal-care {
+  background-image: url("../all-img/personal_care.jpg");
+  
+  /* 1. Set the width of the card */
+  width: 100%; 
+  max-width: 460px; /* Adjust this to the size you want */
+
+  /* 2. Force a square shape (Width / Height) */
+  aspect-ratio: 1 / 1; 
+
+  /* 3. Ensure the background covers the square without stretching */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* 4. Keep your text centering logic */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* color: rgba(199, 69, 69, 0.911); */
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.99); /* Makes text readable against the image */
+
+  font-size: 2rem; /* Reduced slightly to fit a square better */
+  font-weight: bold;
+}
+
+
+.home-cleaning {
+  background-image: url("../all-img/home_cleaning.jpg");
+  /* 1. Set the width of the card */
+  width: 100%; 
+  max-width: 460px; /* Adjust this to the size you want */
+
+  /* 2. Force a square shape (Width / Height) */
+  aspect-ratio: 1 / 1; 
+
+  /* 3. Ensure the background covers the square without stretching */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* 4. Keep your text centering logic */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* color: rgba(199, 69, 69, 0.911); */
+    color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.99); /* Makes text readable against the image */
+
+  font-size: 2rem; /* Reduced slightly to fit a square better */
+  font-weight: bold;
+}
+
+.enzyme-drinks {
+  background-image: url("../all-img/enzyme.jpg");
+  /* 1. Set the width of the card */
+  width: 100%; 
+  max-width: 460px; /* Adjust this to the size you want */
+
+  /* 2. Force a square shape (Width / Height) */
+  aspect-ratio: 1 / 1; 
+
+  /* 3. Ensure the background covers the square without stretching */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* 4. Keep your text centering logic */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* color: rgba(199, 69, 69, 0.911); */
+    color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.99); /* Makes text readable against the image */
+
+  font-size: 2rem; /* Reduced slightly to fit a square better */
+  font-weight: bold;
+}
+
+.product-list {
+  display: flex;
+  gap:10px;
+  
+}
+.product-list > a{
+  flex:1;
+  margin:15px 0px 15px 0px;
+  
+}
+
+.zoom-card { 
+  display: flex;
+  overflow: hidden; 
+  justify-content: center;
+}
+
+.zoom-card div {
+  transition: transform 0.4s ease;
+}
+.zoom-card:hover div {
+  transform:scale(1.05);
+}
+
+@media (max-width: 992px){
+.product-list {
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+
+}
+}
+
+/* product page */
+
+.product-description{
+  padding: 20px 20px;
+    line-height: 1.6; 
+    text-align: center;
+
+}
+.all-products {
+  padding: 20px 0 ;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch; /* 關鍵：強迫同一排所有 .product 等高 */
+  gap: 40px;
+  justify-content: center; /* 水平置中整個產品區塊 */
+}
+
+.product {
+  display: flex;
+  flex-direction: column; /* 讓內容由上而下排列 */
+  width: 300px;
+  background-color:rgb(255, 243, 204);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+/* 讓圖片高度固定，這是整齊的第一步 */
+.product img {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* 固定圖片為正方形 */
+  object-fit: contain; /* 確保圖片不被裁切且完整顯示 */
+  margin-bottom: 20px;
+}
+
+/* 針對描述文字：限制顯示行數（選配） */
+.product div:last-child {
+  /* 如果你不希望描述太長撐開高度，可以用這個技巧限制兩行，多出的變省略號 */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-top: auto; /* 關鍵：將描述推到底部對齊 */
+}
+
+.product > .product-title{
+font-weight: bold;
+}
+
+/* drink bar page*/
+
+.drink-bar-hero{
+  background-image: url("../all-img/brand-img.jpg");
+  height: 80vh;
+
+  /* Fix: This makes the image fill the area */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Fix: This centers the text "Refresh Revive Rejoice" */
+  display: flex;
+  justify-content: center; /* Horizontal center */
+  align-items: center; /* Vertical center */
+
+  /* Styling the text */
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Makes text readable against the image */
+}
+
+.drink-bar-open{
+  display: flex;
+  flex-direction: column;
+  background-image: url("../all-img/open-1315161_1920.jpg");
+  height: 80vh;
+
+  /* Fix: This makes the image fill the area */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Fix: This centers the text "Refresh Revive Rejoice" */
+  display: flex;
+  justify-content: center; /* Horizontal center */
+  align-items: center; /* Vertical center */
+
+  /* Styling the text */
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Makes text readable against the image */
+}
+
+.drink-bar-open h2 {
+  font-size: 5rem;
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.99);
+}
+
+.event-banner-container {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Centers the image if it's smaller than the screen */
+  padding: 20px 0;
+}
+
+.event-banner {
+  width: 100%;       /* Scalable on mobile */
+  max-width: 1200px; /* Limits the size so it doesn't look "huge" on desktop */
+  height: auto;      /* Keeps the proportions perfect */
+  display: block;
+}
+
+
+.all-locations {
+  width: 100%;
+  max-width: 1200px; /* 關鍵：設定與 banner 相同的上限 */
+  margin: 0 auto;    /* 關鍵：水平置中 */
+  display: flex;
+  padding: 20px;     
+  gap: 40px;
+}
+.location{
+  display: flex;
+  flex-direction: column ;
+  flex: 1; /* Each location takes equal space */
+  /* background-color: #f9f9f9; Light background for better visibility */
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.location-details{
+  text-align: left;
+  margin-top: 30px;
+  padding:0 20px ;
+
+}
+
+.all-locations a{
+  font-size:1rem;
+}
+
+@media (max-width: 992px){
+  .all-locations{
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px;
+  gap:40px;
+}
+
+}
+
+/* learn page */
+/* 外層容器：限制最大寬度並居中，讓頁面兩側留白 */
+.all-news {
+  padding: 20px 20px;
+}
+
+.news {
+  display: flex;
+  flex-direction: row; /* 左右排列 */
+  align-items: stretch; /* 關鍵 1：讓左右子元素（圖片和文字）等高 */
+  gap: 40px;
+  background-color: rgb(255, 243, 204);
+  margin-bottom: 60px;
+}
+
+.news img {
+  width: 40%;          /* 維持寬度比例 */
+  display: block;      /* 移除下方空隙 */
+  
+  /* 關鍵 2：強制圖片填滿高度 */
+  height: auto;        /* 預設值 */
+  min-height: 100%;    /* 確保圖片至少跟父容器一樣高 */
+  
+  /* 關鍵 3：防止圖片變形 */
+  object-fit: cover;   /* 圖片會被裁切以填滿空間，而不是被拉長 */
+  object-position: center; /* 裁切時保持中間位置 */
+}
+
+@media (max-width: 992px){
+  .news {
+    display: flex;
+    flex-direction: column; /* 上下堆疊 */
+    background-color: rgb(255, 243, 204);
+    gap: 20px;
+    margin-bottom: 60px;
+  
+  }
+  
+  .news img {
+    width: 100%; /* 圖片佔滿寬度 */
+    height: 250px;
+    object-fit: cover;
+  }
+}
+
+
+.content {
+  flex: 1;             /* 讓文字區域填滿剩餘寬度 */
+  padding: 20px 20px;     /* 建議加上一點上下 padding，視覺更舒適 */
+
+}
+
+/* 右側文字區域 */
+.news > div {
+  flex: 1;                /* 自動填滿剩餘空間 */
+}
+
+/* 內部的標題與段落優化 */
+.news h2 {
+  font-size: 2rem;
+}
+
+.news div > div {
+  margin-bottom: 25px;    /* 段落之間的間距 */
+  line-height: 1.6;       /* 增加行高提高閱讀性 */
+  font-size: 1.3rem;
+}
+
+
+.read-more-link {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 20px;
+  background-color: #333; /* 暗色系按鈕，符合你設計圖的簡約感 */
+  color: white;
+  text-decoration: none; /* 去掉底線 */
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.read-more-link:hover {
+  background-color: #555; /* 滑鼠移上去變色 */
+}
+
+
+/* faq page */
+.faq{
+  padding: 20px 20px;
+  background-color: rgb(255, 243, 204);
+}
+
+summary{
+  margin: 30px 0;;
+}
+
+.faq details >*:not(summary){
+  margin: 0 0 0 20px;
+}
+
+.faq details .faq-key-features{
+  margin: 30px 0 30px 20px;
+}
+
+.faq p {
+  line-height: 1.6; 
+  font-size: 1.1rem; 
+  margin: 20px 0;
+}
+
+/* about company page */
+.abt-company {
+  padding: 60px 60px;       /* More vertical padding for a premium feel */
+  background-color: rgb(255, 243, 204);
+  
+  margin: 0 auto;           /* Centers the container horizontally */
+  
+  /* Optional: Better text alignment */
+  text-align: left;         /* Keeps body text easy to read */
+}
+
+/* Keep your titles centered */
+.abt-company h2, 
+.abt-company h3 {
+  text-align: center;
+  margin-top: 40px;         /* Space above each new section */
+  margin-bottom: 20px;      /* Space below the title */
+}
+
+.abt-company p {
+  line-height: 1.6; 
+  font-size: 1.1rem; 
+  margin: 40px 0 0 0;
+}
+
+.article-detail{
+  padding: 20px 20px;
+  /* margin: 40px auto; */
+  /* background-color: #f9f9f9; 加上淺色背景更有 frame 的感覺（選配） */
+  background-color: rgb(255, 243, 204);
+
+}
+.article-detail h2{
+  text-align: center;
+}
+
+.article-detail p{
+  line-height: 1.6; 
+  font-size: 1.1rem; 
+  margin: 20px 0;
+}
